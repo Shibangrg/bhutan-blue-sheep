@@ -234,3 +234,79 @@ Development of the public website and business-management plugin will begin afte
 
 
 
+\## 10. Local WordPress Environment
+
+
+
+The project uses LocalWP for local WordPress development.
+
+
+
+\### Environment Configuration
+
+
+
+| Component | Configuration |
+
+|---|---|
+
+| Local platform | LocalWP |
+
+| Local domain | bhutan-blue-sheep.local |
+
+| SSL | Trusted local certificate |
+
+| Web server | Nginx |
+
+| PHP version | 8.2.29 |
+
+| Database | MySQL 8.4.0 |
+
+| WordPress version | 7.1.4 |
+
+| Multisite | Disabled |
+
+| Xdebug | Disabled |
+
+
+
+\### Environment Compatibility
+
+
+
+The original production website uses an older PHP and database environment than the local development installation.
+
+
+
+The production environment must be assessed before deployment.
+
+
+
+Development must avoid unnecessary dependencies on newer PHP or database features until the production compatibility target is established.
+
+
+
+No production upgrades or configuration changes should be made without a verified backup and staging environment.
+
+
+
+\### Local Development Domain
+
+
+
+The local WordPress installation is accessible through:
+
+
+
+`http://bhutan-blue-sheep.local`
+
+
+
+The local SSL certificate is trusted by the development environment.
+
+
+
+Production HTTPS configuration will be handled separately during deployment planning.
+
+
+
