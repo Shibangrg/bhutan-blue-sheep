@@ -660,5 +660,5 @@ The following areas require detailed design before implementation:
 
 
 
-\*\*Architecture status:\*\* Proposed baseline, pending technical review and approval.
+Architecture status: Approved baseline.
 
