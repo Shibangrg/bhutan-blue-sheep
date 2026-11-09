@@ -14,46 +14,23 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-/**
- * Plugin version.
- */
 define('BSBM_VERSION', '1.0.0');
-
-/**
- * Plugin directory path.
- */
 define('BSBM_PATH', plugin_dir_path(__FILE__));
-
-/**
- * Plugin directory URL.
- */
 define('BSBM_URL', plugin_dir_url(__FILE__));
 
 /**
- * Main plugin class.
+ * Load and register the plugin autoloader.
  */
-final class Blue_Sheep_Business_Manager {
+require_once BSBM_PATH . 'includes/Core/Autoloader.php';
 
-    /**
-     * Initialize the plugin.
-     */
-    public function __construct() {
-        add_action('plugins_loaded', array($this, 'initialize'));
-    }
-
-    /**
-     * Initialize plugin functionality.
-     */
-    public function initialize() {
-        // Business modules will be registered here.
-    }
-}
+\BlueSheep\BusinessManager\Core\Autoloader::register();
 
 /**
- * Start the plugin.
+ * Initialize the plugin.
  */
-function bsbm_start_plugin() {
-    new Blue_Sheep_Business_Manager();
+function bsbm_start_plugin(): void {
+    $plugin = new \BlueSheep\BusinessManager\Core\Plugin();
+    $plugin->init();
 }
 
 bsbm_start_plugin();
