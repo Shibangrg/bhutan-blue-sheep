@@ -1,0 +1,140 @@
+/*
+Theme Name: Bhutan Blue Sheep
+Theme URI: https://www.bhutanbluesheeptours.com/
+Author: Bhutan Blue Sheep Tours & Travels
+Description: Custom WordPress theme for Bhutan Blue Sheep Tours & Travels.
+Version: 1.0.0
+Requires at least: 6.6
+Requires PHP: 8.2
+Text Domain: blue-sheep
+*/
+
+/* Global styles */
+:root {
+    --color-forest: #173D32;
+    --color-ivory: #F5F0E6;
+    --color-gold: #B89553;
+    --color-burgundy: #762F32;
+    --color-text: #292929;
+    --color-white: #FFFFFF;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background-color: var(--color-ivory);
+    color: var(--color-text);
+    font-family: Arial, sans-serif;
+}
+
+a {
+    color: var(--color-forest);
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+/* =========================================
+   SITE HEADER
+========================================= */
+
+.site-header {
+    width: 100%;
+    background-color: var(--color-forest);
+    color: var(--color-white);
+}
+
+.site-header__inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.site-brand {
+    color: var(--color-white);
+    font-family: Georgia, serif;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.site-navigation ul {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.site-navigation a {
+    color: var(--color-white);
+    font-size: 14px;
+    transition: color 0.2s ease;
+}
+
+.site-navigation a:hover {
+    color: var(--color-gold);
+}
+
+/* =========================================
+   MAIN CONTENT
+========================================= */
+
+#main-content {
+    min-height: 60vh;
+}
+
+/* =========================================
+   SITE FOOTER
+========================================= */
+
+.site-footer {
+    background-color: var(--color-forest);
+    color: var(--color-white);
+    padding: 30px 40px;
+}
+
+.site-footer__inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.site-footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* =========================================
+   RESPONSIVE LAYOUT
+========================================= */
+
+@media (max-width: 768px) {
+    .site-header__inner {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .site-navigation ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+    }
+
+    .site-footer {
+        padding: 25px 20px;
+    }
+}
