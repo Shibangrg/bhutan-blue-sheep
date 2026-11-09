@@ -1,0 +1,38 @@
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# WordPress configuration containing local credentials
+wp-config.php
+
+# Database exports and backups
+*.sql
+*.sql.gz
+*.zip
+*.bak
+/backups/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE and editor files
+.vscode/
+.idea/
+
+# Dependencies and generated files
+node_modules/
+vendor/
+
+# Cache
+.cache/
