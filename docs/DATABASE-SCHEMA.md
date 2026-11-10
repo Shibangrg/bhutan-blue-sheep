@@ -645,7 +645,15 @@ bs_activity_log	Related activity records	Token creation, revocation, and relevan
 The bs_activity_log table records important administrative and business-related actions performed within the Blue Sheep Business Manager.
 
 It provides an audit trail for monitoring changes to customers, enquiries, quotations, bookings, payments, documents, and access permissions.
-12.1 Fields
+12.1 Fields
+
+<!-- BSBM-ACTIVITY-LOG-FIELDS -->
+
+Additional fields:
+
+- `previous_status` VARCHAR(40) NULL: Stores the status before a status transition.
+- `new_status` VARCHAR(40) NULL: Stores the status after a status transition.
+- `reason` TEXT NULL: Stores the explanation for an action or status transition.
 Field	Data Type	Constraints	Description
 id	BIGINT UNSIGNED	Primary Key, Auto Increment	Unique activity log identifier.
 user_id	BIGINT UNSIGNED	Nullable	WordPress administrator ID of the user who performed the action, where applicable.
@@ -666,7 +674,18 @@ The application should record significant actions, including:
 - Document creation and relevant administrative actions.
 - Access token creation and revocation.
 - Important administrative changes to business records.
-12.3 Activity Recording Rules
+12.3 Activity Recording Rules
+
+<!-- BSBM-ACTIVITY-LOG-RULES -->
+
+Additional recording rules:
+
+- For status changes, record the previous and new status separately.
+- Record the reason for the transition when applicable.
+- Use `status_changed` as the action identifier for status transitions.
+- Keep `previous_status` and `new_status` NULL for activities that do not involve a status change.
+- Record the responsible administrator where applicable.
+- System-generated activities should be identifiable in the activity description.
 - Record the WordPress administrator responsible for the action, where applicable.
 - Record the affected entity type and entity ID.
 - Use consistent action identifiers.
@@ -683,7 +702,16 @@ The activity log must never contain:
 - Unnecessary personal information.
 - Full private document contents.
 - Other sensitive information that is not required for auditing.
-12.5 Data Integrity Rules
+12.5 Data Integrity Rules
+
+<!-- BSBM-ACTIVITY-LOG-INTEGRITY -->
+
+Additional integrity rules:
+
+- When `action` is `status_changed`, both `previous_status` and `new_status` must be populated.
+- For other actions, these fields may remain NULL.
+- Activity records must preserve historical status transitions.
+- Activity records must not be silently modified or deleted during normal operations.
 - entity_type and entity_id must identify the affected business record.
 - user_id, when populated, must identify the relevant WordPress administrator.
 - Polymorphic entity references must be validated by the application because a conventional foreign key cannot directly reference multiple tables.

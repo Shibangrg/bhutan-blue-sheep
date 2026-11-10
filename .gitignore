@@ -36,3 +36,19 @@ vendor/
 
 # Cache
 .cache/
+
+# WordPress generated content
+wp-content/uploads/
+wp-content/upgrade/
+wp-content/cache/
+
+# WordPress debug and server logs
+wp-content/debug.log
+error_log
+
+# Local database schema backups
+*.backup-*
+
+# Temporary migration test scripts
+wp-content/plugins/blue-sheep-business-manager/test-migration-*.php
+wp-content/plugins/blue-sheep-business-manager/test-migrations.php

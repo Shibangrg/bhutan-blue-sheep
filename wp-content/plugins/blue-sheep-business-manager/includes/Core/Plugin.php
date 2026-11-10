@@ -2,6 +2,8 @@
 
 namespace BlueSheep\BusinessManager\Core;
 
+use BlueSheep\BusinessManager\Content\ContentTypes;
+
 if (!defined('ABSPATH')) {
     exit;
 }
@@ -9,12 +11,14 @@ if (!defined('ABSPATH')) {
 /**
  * Handles core plugin initialization.
  */
-final class Plugin {
-
+final class Plugin
+{
     /**
      * Initialize the plugin.
      */
-    public function init(): void {
-        // Core services and modules will be initialized here.
+    public function init(): void
+    {
+        $content_types = new ContentTypes();
+        $content_types->register();
     }
 }
