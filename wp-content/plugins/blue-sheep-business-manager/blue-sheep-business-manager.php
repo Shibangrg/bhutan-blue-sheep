@@ -19,6 +19,19 @@ define('BSBM_PATH', plugin_dir_path(__FILE__));
 define('BSBM_URL', plugin_dir_url(__FILE__));
 
 /**
+ * Load Composer dependencies.
+ */
+$composer_autoload = BSBM_PATH . 'vendor/autoload.php';
+
+if (file_exists($composer_autoload)) {
+    require_once $composer_autoload;
+} else {
+    error_log(
+        'Blue Sheep Business Manager: Composer autoloader not found.'
+    );
+}
+
+/**
  * Load and register the plugin autoloader.
  */
 require_once BSBM_PATH . 'includes/Core/Autoloader.php';
@@ -28,9 +41,10 @@ require_once BSBM_PATH . 'includes/Core/Autoloader.php';
 /**
  * Initialize the plugin.
  */
-function bsbm_start_plugin(): void {
+function bsbm_start_plugin(): void
+{
     $plugin = new \BlueSheep\BusinessManager\Core\Plugin();
     $plugin->init();
 }
 
-bsbm_start_plugin();
+add_action('plugins_loaded', 'bsbm_start_plugin');

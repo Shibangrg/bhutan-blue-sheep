@@ -14,7 +14,7 @@ final class SchemaVersion {
     /**
      * Current schema version defined by the plugin.
      */
-    private const CURRENT_VERSION = 0;
+    private const CURRENT_VERSION = 3;
 
     /**
      * WordPress option used to store the installed schema version.
