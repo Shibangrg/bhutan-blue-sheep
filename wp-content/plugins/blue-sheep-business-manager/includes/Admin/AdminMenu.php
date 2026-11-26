@@ -40,6 +40,7 @@ final class AdminMenu
         $customers_page = new CustomersPage();
         $enquiries_page = new EnquiriesPage();
         $bookings_page = new BookingsPage();
+        $notifications_page = new NotificationsPage();
 
         // Fallback for direct invocation outside the normal registration flow.
         if (!$this->quotations_page instanceof QuotationsPage) {
@@ -100,6 +101,15 @@ final class AdminMenu
             'manage_options',
             'bsbm-bookings',
             [$bookings_page, 'render']
+        );
+
+        add_submenu_page(
+            'bsbm-dashboard',
+            __('Notifications', 'blue-sheep-business-manager'),
+            __('Notifications', 'blue-sheep-business-manager'),
+            'manage_options',
+            'bsbm-notifications',
+            [$notifications_page, 'render']
         );
     }
 }
